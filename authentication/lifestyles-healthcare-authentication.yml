@@ -1,0 +1,66 @@
+generated: '2026-07-19'
+method: searched
+source: https://lifestyles.com/.well-known/openid-configuration
+docs: https://shopify.dev/docs/api/customer
+summary: >-
+  The LifeStyles US storefront exposes two access modes: unauthenticated read-only
+  browsing of catalog JSON endpoints, and Shopify Customer Accounts OpenID Connect for
+  buyer-scoped access. Agent commerce over the UCP MCP endpoint additionally requires an
+  agent profile URI and explicit buyer approval at payment.
+schemes:
+- name: none
+  type: none
+  applies_to: >-
+    Read-only storefront JSON (/products.json, /collections/{handle}/products.json,
+    /products/{handle}.json, /search, /cart.js, /sitemap.xml).
+  evidence: https://lifestyles.com/llms.txt
+- name: shopify_customer_accounts
+  type: openIdConnect
+  openIdConnectUrl: https://lifestyles.com/.well-known/openid-configuration
+  issuer: https://shopify.com/authentication/61038100706
+  authorization_endpoint: https://shopify.com/authentication/61038100706/oauth/authorize
+  token_endpoint: https://shopify.com/authentication/61038100706/oauth/token
+  end_session_endpoint: https://shopify.com/authentication/61038100706/logout
+  jwks_uri: https://shopify.com/authentication/61038100706/.well-known/jwks.json
+  grant_types:
+  - authorization_code
+  - refresh_token
+  - 'urn:ietf:params:oauth:grant-type:jwt-bearer'
+  response_types:
+  - code
+  pkce:
+    supported: true
+    code_challenge_methods:
+    - S256
+  token_endpoint_auth_methods:
+  - client_secret_basic
+  id_token_signing_alg:
+  - RS256
+  subject_types:
+  - public
+  claims:
+  - iss
+  - sub
+  - aud
+  - exp
+  - iat
+  - nonce
+  - sid
+  - email
+  - email_verified
+  scopes:
+  - openid
+  - email
+  - customer-account-api:full
+  - customer-account-mcp-api:full
+  evidence: https://lifestyles.com/.well-known/openid-configuration
+- name: ucp_agent_profile
+  type: agentProfile
+  applies_to: https://lifestyles.com/api/ucp/mcp
+  description: >-
+    The UCP MCP endpoint requires the calling agent to present a profile URI. Calls
+    without one are rejected with JSON-RPC error -32001 (invalid_profile_url).
+  evidence: probed 2026-07-19 - POST https://lifestyles.com/api/ucp/mcp tools/list
+observations:
+  probed: '2026-07-19'
+  security_txt: absent (404 at /.well-known/security.txt)
