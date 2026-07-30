@@ -1,0 +1,34 @@
+generated: '2026-07-19'
+method: derived
+source: probed https://lifestyles.com/api/ucp/mcp on 2026-07-19
+format: jsonrpc-2.0
+summary: >-
+  The LifeStyles US UCP MCP endpoint returns JSON-RPC 2.0 error envelopes rather than
+  RFC 9457 problem details. Only errors actually observed in live probes are recorded
+  here; the provider publishes no error reference of its own.
+envelope:
+  jsonrpc: '2.0'
+  id: matches the request id
+  error:
+    code: integer JSON-RPC error code
+    message: human-readable summary
+    data:
+      code: machine-readable sub-code
+      content: detail string
+      continue_url: URL a human can open to continue the flow
+errors:
+- code: -32001
+  sub_code: invalid_profile_url
+  message: UCP discovery failed
+  detail: 'Unable to fetch agent profile: Missing profile uri'
+  remediation: >-
+    Present a resolvable agent profile URI with the MCP request before calling
+    tools/list or any shopping tool.
+  observed: '2026-07-19'
+http_status_signals:
+- status: 422
+  meaning: JSON-RPC request accepted but rejected at the UCP layer (see error.data.code).
+  observed: '2026-07-19'
+- status: 429
+  meaning: Per-IP rate limit on the MCP endpoint; back off and retry.
+  source: https://lifestyles.com/llms.txt

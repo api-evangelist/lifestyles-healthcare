@@ -1,0 +1,60 @@
+generated: '2026-07-19'
+method: searched
+source: https://lifestyles.com/.well-known/ucp
+summary: >-
+  Standards the LifeStyles US commerce surface demonstrably conforms to, each backed by
+  a document fetched from the provider's own host. No security or compliance
+  certifications (SOC 2, ISO 27001, PCI, HIPAA) are published by LifeStyles Healthcare
+  on this surface, so none are asserted here.
+standards:
+- id: ucp
+  name: Universal Commerce Protocol
+  version: '2026-04-08'
+  conforms: true
+  evidence: >-
+    https://lifestyles.com/.well-known/ucp advertises versions 2026-04-08 and
+    2026-01-23 with a dev.ucp.shopping MCP service endpoint.
+- id: mcp
+  name: Model Context Protocol
+  conforms: true
+  evidence: >-
+    Live JSON-RPC 2.0 MCP endpoint at https://lifestyles.com/api/ucp/mcp; schema at
+    https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
+- id: oidc
+  name: OpenID Connect Discovery 1.0
+  conforms: true
+  evidence: 200 at https://lifestyles.com/.well-known/openid-configuration
+- id: oauth2
+  name: OAuth 2.0 Authorization Code with PKCE
+  conforms: true
+  evidence: >-
+    grant_types_supported includes authorization_code and refresh_token;
+    code_challenge_methods_supported is [S256].
+- id: rfc8414
+  name: OAuth 2.0 Authorization Server Metadata
+  conforms: true
+  evidence: 200 at https://lifestyles.com/.well-known/oauth-authorization-server
+- id: jsonrpc
+  name: JSON-RPC 2.0
+  conforms: true
+  evidence: MCP endpoint returns jsonrpc 2.0 envelopes with numeric error codes.
+- id: llmstxt
+  name: llms.txt
+  conforms: true
+  evidence: 200 at https://lifestyles.com/llms.txt
+- id: rfc9116
+  name: security.txt
+  conforms: false
+  evidence: 404 at https://lifestyles.com/.well-known/security.txt
+- id: rfc9457
+  name: Problem Details for HTTP APIs
+  conforms: false
+  evidence: >-
+    Errors observed on the MCP endpoint use the JSON-RPC error envelope, not
+    application/problem+json.
+- id: openapi
+  name: OpenAPI
+  conforms: false
+  evidence: >-
+    No first-party OpenAPI is published; the MCP service is described by the upstream
+    UCP OpenRPC schema at ucp.dev.

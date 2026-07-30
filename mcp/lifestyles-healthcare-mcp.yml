@@ -1,0 +1,60 @@
+generated: '2026-07-19'
+method: searched
+status: published
+source: https://lifestyles.com/llms.txt
+server:
+  name: lifestyles-us-ucp
+  description: >-
+    LifeStyles US operates a live Universal Commerce Protocol (UCP) shopping MCP
+    endpoint for agent-driven commerce over its Shopify storefront. The endpoint was
+    probed on 2026-07-19 and responded to JSON-RPC (a tools/list call without an agent
+    profile returns error -32001 invalid_profile_url, confirming the server is live
+    and requires an agent profile URI).
+  transport: http
+  url: https://lifestyles.com/api/ucp/mcp
+  alternate_url: https://lifestyles-us.myshopify.com/api/ucp/mcp
+  protocol: jsonrpc-2.0
+  content_type: application/json
+  discovery: https://lifestyles.com/.well-known/ucp
+  schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
+  spec: https://ucp.dev/2026-04-08/specification/overview/
+  versions:
+  - '2026-04-08'
+  - '2026-01-23'
+authentication:
+  required_for_read: false
+  required_for_checkout: true
+  note: >-
+    Buyer approval is mandatory at payment. The store documents that agents must not
+    complete payment without explicit contemporaneous buyer consent.
+tools:
+- name: search_catalog
+  description: Search the store catalog for products matching a buyer's intent.
+  source: https://lifestyles.com/llms.txt
+- name: create_cart
+  description: Create a cart and add the desired items.
+  source: https://lifestyles.com/llms.txt
+- name: create_checkout
+  description: Start the purchase flow from a cart.
+  source: https://lifestyles.com/llms.txt
+- name: update_checkout
+  description: Set the shipping address and shipping method on a checkout.
+  source: https://lifestyles.com/llms.txt
+- name: complete_checkout
+  description: Finalize the purchase. Requires explicit buyer approval of payment.
+  source: https://lifestyles.com/llms.txt
+capabilities:
+- dev.ucp.shopping.catalog.search
+- dev.ucp.shopping.catalog.lookup
+- dev.ucp.shopping.cart
+- dev.ucp.shopping.checkout
+- dev.ucp.shopping.fulfillment
+- dev.ucp.shopping.discount
+- dev.ucp.shopping.order
+- dev.shopify.catalog
+payment_handlers:
+- com.google.pay
+- dev.shopify.card
+rate_limits:
+  documented: true
+  note: The MCP endpoint is rate-limited per IP; agents are instructed to back off on 429.

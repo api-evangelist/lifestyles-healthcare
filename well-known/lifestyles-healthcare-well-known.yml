@@ -1,0 +1,43 @@
+generated: '2026-07-19'
+method: searched
+source: https://lifestyles.com/.well-known/
+host: https://lifestyles.com
+notes: >-
+  lifestyles.com is the LifeStyles US direct-to-consumer storefront, operated on
+  Shopify. The discovery surface below was probed live on 2026-07-19; the OIDC and
+  OAuth authorization-server documents are Shopify Customer Accounts, and the
+  UCP document is the store's Universal Commerce Protocol merchant profile.
+documents:
+- path: /.well-known/openid-configuration
+  status: 200
+  file: lifestyles-healthcare-openid-configuration.json
+  description: Shopify Customer Accounts OpenID Connect discovery document.
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: lifestyles-healthcare-oauth-authorization-server.json
+  description: RFC 8414 authorization server metadata (same payload as the OIDC document).
+- path: /.well-known/ucp
+  status: 200
+  file: lifestyles-healthcare-ucp.json
+  description: >-
+    Universal Commerce Protocol merchant profile - supported versions, MCP service
+    endpoint, shopping capabilities and payment handlers.
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+- path: /llms.txt
+  status: 200
+  file: ../llms/lifestyles-healthcare-llms.txt
+  description: Agent instructions for the store (mirrors /agents.md).
+- path: /agents.md
+  status: 200
+  file: ../skills/lifestyles-healthcare-agents.md
+  description: Canonical agent-facing description of the store.
+- path: /robots.txt
+  status: 200
+- path: /sitemap.xml
+  status: 200
+  description: Sitemap index, includes sitemap_agentic_discovery.xml.

@@ -1,0 +1,22 @@
+generated: '2026-07-19'
+method: searched
+source: https://lifestyles.com/agents.md
+skills:
+- name: lifestyles-us-agent-instructions
+  file: lifestyles-healthcare-agents.md
+  description: >-
+    Provider-published agent instructions for the LifeStyles US store, saved verbatim
+    from https://lifestyles.com/agents.md. Covers the UCP discovery and MCP endpoints,
+    the six-step agent purchase flow, read-only browsing endpoints, and the
+    buyer-approval rule for checkout.
+  api: lifestyles-us-ucp-shopping
+  operations:
+  - search_catalog
+  - create_cart
+  - create_checkout
+  - update_checkout
+  - complete_checkout
+  published_by: provider
+  verbatim: true
+related:
+- https://shop.app/SKILL.md

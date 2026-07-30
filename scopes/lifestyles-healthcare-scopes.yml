@@ -1,0 +1,23 @@
+generated: '2026-07-19'
+method: searched
+source: https://lifestyles.com/.well-known/openid-configuration
+docs: https://shopify.dev/docs/api/customer
+provider_model: >-
+  OAuth 2.0 / OpenID Connect scopes advertised by the Shopify Customer Accounts
+  authorization server that backs the LifeStyles US storefront. These are the
+  scopes_supported values published in the store's own discovery document.
+authorization_server: https://shopify.com/authentication/61038100706
+scopes:
+- name: openid
+  description: Request an ID token and authenticate the customer via OpenID Connect.
+- name: email
+  description: Access the authenticated customer's email address and its verification status.
+- name: 'customer-account-api:full'
+  description: >-
+    Full access to the Customer Account API on behalf of the signed-in customer -
+    orders, addresses, and account profile.
+- name: 'customer-account-mcp-api:full'
+  description: >-
+    Full access to the customer-account MCP API on behalf of the signed-in customer,
+    enabling agent access to that customer's account surface.
+count: 4

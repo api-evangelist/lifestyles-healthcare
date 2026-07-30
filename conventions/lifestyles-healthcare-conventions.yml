@@ -1,0 +1,67 @@
+generated: '2026-07-19'
+method: searched
+source: https://lifestyles.com/llms.txt
+summary: >-
+  Cross-cutting runtime semantics of the LifeStyles US commerce surface, taken from the
+  store's published agent instructions and from live probes. Idempotency is NOT
+  documented on this surface, so no idempotency guarantees are claimed.
+auth:
+  style: >-
+    Unauthenticated for read-only catalog JSON; OpenID Connect (Shopify Customer
+    Accounts) for buyer-scoped access; agent profile URI required on the UCP MCP
+    endpoint.
+  see: ../authentication/lifestyles-healthcare-authentication.yml
+idempotency:
+  supported: unknown
+  documented: false
+  note: >-
+    Neither /llms.txt nor /agents.md documents an idempotency key or a retry-safety
+    contract for cart or checkout mutations. Not asserted.
+pagination:
+  style: page-and-limit
+  params:
+  - limit
+  - page
+  applies_to:
+  - /products.json
+  - /collections/{handle}/products.json
+  note: Shopify storefront JSON convention; verified live against /products.json.
+versioning:
+  style: date-versioned protocol
+  current: '2026-04-08'
+  supported:
+  - '2026-04-08'
+  - '2026-01-23'
+  negotiation: >-
+    Version-specific profiles are advertised under
+    /.well-known/ucp/{version} in the merchant profile.
+error_envelope:
+  format: jsonrpc-2.0
+  shape: 'error: { code, message, data: { code, content, continue_url } }'
+  see: ../errors/lifestyles-healthcare-problem-types.yml
+rate_limits:
+  documented: true
+  signal: HTTP 429
+  guidance: >-
+    "The MCP endpoint is rate-limited per IP. Back off on 429 responses."
+    No published quota numbers or rate-limit response headers.
+  scope: per-IP
+request_context:
+  fields:
+  - context.address_country
+  - context.currency
+  note: >-
+    Agents are instructed to pass buyer context for accurate pricing and availability.
+human_in_the_loop:
+  required: true
+  rule: >-
+    Checkout requires human approval - agents must not complete payment without
+    explicit contemporaneous buyer consent.
+content_negotiation:
+  request_content_type: application/json
+discovery:
+  well_known: ../well-known/lifestyles-healthcare-well-known.yml
+  llms_txt: ../llms/lifestyles-healthcare-llms.txt
+  agents_md: ../skills/lifestyles-healthcare-agents.md
+  sitemap: https://lifestyles.com/sitemap.xml
+  agentic_sitemap: https://lifestyles.com/sitemap_agentic_discovery.xml

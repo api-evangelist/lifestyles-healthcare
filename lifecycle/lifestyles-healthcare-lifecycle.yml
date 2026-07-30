@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: searched
+source: https://lifestyles.com/.well-known/ucp
+summary: >-
+  Lifecycle posture of the LifeStyles US commerce surface. The store versions its agent
+  commerce surface by UCP protocol date and currently supports two versions
+  concurrently. LifeStyles Healthcare publishes no status page, SLA, deprecation policy
+  or changelog of its own for this surface.
+versioning:
+  scheme: date
+  current: '2026-04-08'
+  supported:
+  - '2026-04-08'
+  - '2026-01-23'
+  evidence: https://lifestyles.com/.well-known/ucp
+deprecation_policy:
+  published: false
+  sunset_header: not observed
+  deprecation_header: not observed
+status_page:
+  published: false
+  note: >-
+    No first-party status page. The storefront runs on Shopify, whose platform status
+    is published at https://www.shopifystatus.com/ (third-party, not owned by
+    LifeStyles Healthcare).
+sla:
+  published: false
+changelog:
+  published: false
+support:
+  contact: https://lifestyles.com/pages/contact
