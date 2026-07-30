@@ -1,27 +1,134 @@
 aid: lifestyles-healthcare
 name: LifeStyles Healthcare
-description: 'LifeStyles Healthcare is a company surfaced as a portfolio company of hillhouse and added
-  to the API Evangelist network as a stub for enrichment. Sector: healthcare. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  LifeStyles Healthcare Pte Ltd is a global sexual wellness company that owns the
+  LifeStyles condom and personal lubricant brands, tracing its origin to the condom
+  business founded by Eric Ansell in Richmond, Australia in 1905. The company sells a
+  broad range of latex and non-latex condoms, personal lubricants, and pleasure
+  products across North American and international markets, and holds the LifeStyles
+  trademarks and intellectual property across multiple jurisdictions. Its North
+  American direct-to-consumer storefront at lifestyles.com runs on Shopify and exposes
+  a genuinely agent-native commerce surface: a published llms.txt and agents.md, a
+  Universal Commerce Protocol (UCP) merchant profile at /.well-known/ucp, a live UCP
+  shopping MCP endpoint for agent-driven catalog search, cart and checkout, and Shopify
+  Customer Accounts OpenID Connect for buyer-scoped access. There is no traditional
+  developer portal or first-party REST API program.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.shopify.com/s/files/1/0610/3810/0706/files/lifestyles-logo_726b0e33-aa28-4543-ac4a-34ce08153d2a.png
 url: https://raw.githubusercontent.com/api-evangelist/lifestyles-healthcare/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - hillhouse
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: agent-commerce-surface
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
 - Healthcare
-apis: []
+- Sexual Wellness
+- Consumer Packaged Goods
+- E-Commerce
+- Agentic Commerce
+- Model Context Protocol
+- Shopify
+- Retail
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: LifeStyles US UCP Shopping (MCP)
+  description: >-
+    The LifeStyles US store implements the Universal Commerce Protocol for agent-driven
+    commerce. Agents discover the merchant profile at /.well-known/ucp and then call the
+    JSON-RPC MCP endpoint to search the catalog, build a cart, and drive a checkout to
+    completion. Payment always requires explicit buyer approval.
+  humanURL: https://lifestyles.com/llms.txt
+  baseURL: https://lifestyles.com/api/ucp/mcp
+  tags:
+  - Commerce
+  - Agentic Commerce
+  - MCP
+  - UCP
+  properties:
+  - type: MCPServer
+    url: mcp/lifestyles-healthcare-mcp.yml
+  - type: Documentation
+    url: https://lifestyles.com/agents.md
+  - type: Authentication
+    url: authentication/lifestyles-healthcare-authentication.yml
+  - type: ErrorCatalog
+    url: errors/lifestyles-healthcare-problem-types.yml
+  - type: Conventions
+    url: conventions/lifestyles-healthcare-conventions.yml
+- name: LifeStyles US Storefront JSON
+  description: >-
+    Unauthenticated read-only JSON endpoints over the LifeStyles US Shopify storefront -
+    product listings, individual products, collections, search and cart state - which the
+    store's own agent instructions document as the read-only browsing surface.
+  humanURL: https://lifestyles.com/llms.txt
+  baseURL: https://lifestyles.com
+  tags:
+  - Catalog
+  - Products
+  - E-Commerce
+  properties:
+  - type: Documentation
+    url: https://lifestyles.com/llms.txt
+  - type: Conventions
+    url: conventions/lifestyles-healthcare-conventions.yml
 common:
+- type: DomainSecurity
+  url: security/lifestyles-healthcare-domain-security.yml
 - type: Website
-  url: https://www.lifestyleshealthcare.com
+  url: https://lifestyles.com
+- type: Documentation
+  url: https://lifestyles.com/llms.txt
+- type: LLMsTxt
+  url: llms/lifestyles-healthcare-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: MCPServer
+  url: mcp/lifestyles-healthcare-mcp.yml
+- type: WellKnown
+  url: well-known/lifestyles-healthcare-well-known.yml
+- type: Authentication
+  url: authentication/lifestyles-healthcare-authentication.yml
+- type: OAuthScopes
+  url: scopes/lifestyles-healthcare-scopes.yml
+- type: Conventions
+  url: conventions/lifestyles-healthcare-conventions.yml
+- type: ErrorCatalog
+  url: errors/lifestyles-healthcare-problem-types.yml
+- type: Conformance
+  url: conformance/lifestyles-healthcare-conformance.yml
+- type: Lifecycle
+  url: lifecycle/lifestyles-healthcare-lifecycle.yml
+- type: Blog
+  url: https://lifestyles.com/blogs/sexual-health-safe-sex
+- type: Support
+  url: https://lifestyles.com/pages/contact
+- type: TermsOfService
+  url: https://lifestyles.com/policies/terms-of-service
+- type: PrivacyPolicy
+  url: https://lifestyles.com/policies/privacy-policy
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
