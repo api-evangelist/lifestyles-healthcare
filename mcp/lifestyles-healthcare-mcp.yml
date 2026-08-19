@@ -4,12 +4,10 @@ status: published
 source: https://lifestyles.com/llms.txt
 server:
   name: lifestyles-us-ucp
-  description: >-
-    LifeStyles US operates a live Universal Commerce Protocol (UCP) shopping MCP
-    endpoint for agent-driven commerce over its Shopify storefront. The endpoint was
-    probed on 2026-07-19 and responded to JSON-RPC (a tools/list call without an agent
-    profile returns error -32001 invalid_profile_url, confirming the server is live
-    and requires an agent profile URI).
+  description: LifeStyles US operates a live Universal Commerce Protocol (UCP) shopping MCP endpoint for
+    agent-driven commerce over its Shopify storefront. The endpoint was probed on 2026-07-19 and responded
+    to JSON-RPC (a tools/list call without an agent profile returns error -32001 invalid_profile_url,
+    confirming the server is live and requires an agent profile URI).
   transport: http
   url: https://lifestyles.com/api/ucp/mcp
   alternate_url: https://lifestyles-us.myshopify.com/api/ucp/mcp
@@ -24,9 +22,8 @@ server:
 authentication:
   required_for_read: false
   required_for_checkout: true
-  note: >-
-    Buyer approval is mandatory at payment. The store documents that agents must not
-    complete payment without explicit contemporaneous buyer consent.
+  note: Buyer approval is mandatory at payment. The store documents that agents must not complete payment
+    without explicit contemporaneous buyer consent.
 tools:
 - name: search_catalog
   description: Search the store catalog for products matching a buyer's intent.
@@ -58,3 +55,11 @@ payment_handlers:
 rate_limits:
   documented: true
   note: The MCP endpoint is rate-limited per IP; agents are instructed to back off on 429.
+deployment:
+  mode: remote
+  endpoint: https://lifestyles.com/api/ucp/mcp
+  verified: probed
+  probe: live
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census
