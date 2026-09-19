@@ -87,6 +87,11 @@ apis:
   - Commerce
   - Agentic Commerce
   - MCP
+  - Universal Commerce Protocol
+  tags_raw:
+  - Commerce
+  - Agentic Commerce
+  - MCP
   - UCP
   properties:
   - type: MCPServer
