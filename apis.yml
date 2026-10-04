@@ -104,13 +104,15 @@ apis:
     url: errors/lifestyles-healthcare-problem-types.yml
   - type: Conventions
     url: conventions/lifestyles-healthcare-conventions.yml
+  x-surface: platform-generated
+  x-platform: shopify
+  x-platform-surface: ucp
 - name: LifeStyles US Storefront JSON
   description: >-
     Unauthenticated read-only JSON endpoints over the LifeStyles US Shopify storefront -
     product listings, individual products, collections, search and cart state - which the
     store's own agent instructions document as the read-only browsing surface.
   humanURL: https://lifestyles.com/llms.txt
-  baseURL: https://lifestyles.com
   tags:
   - Catalog
   - Product
@@ -124,6 +126,9 @@ apis:
     url: https://lifestyles.com/llms.txt
   - type: Conventions
     url: conventions/lifestyles-healthcare-conventions.yml
+  x-surface: platform-generated
+  x-platform: shopify
+  x-platform-surface: storefront-json
 common:
 - type: DomainSecurity
   url: security/lifestyles-healthcare-domain-security.yml
