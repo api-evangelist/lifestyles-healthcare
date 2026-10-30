@@ -64,6 +64,102 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-LifeStyles Healthcare is a company surfaced as a portfolio company of hillhouse and added to the API Evangelist network as a stub for enrichment. Sector: healthcare. This profile is a lead awaiting the enrichment pipeline.
+LifeStyles Healthcare Pte Ltd is a global sexual wellness company that owns the LifeStyles condom and personal lubricant brands, tracing its origin to the condom business founded by Eric Ansell in Richmond, Australia in 1905. The company sells a broad range of latex and non-latex condoms, personal lubricants, and pleasure products across North American and international markets, and holds the LifeStyles trademarks and intellectual property across multiple jurisdictions. Its North American direct-to-consumer storefront at lifestyles.com runs on Shopify and exposes a genuinely agent-native commerce surface: a published llms.txt and agents.md, a Universal Commerce Protocol (UCP) merchant profile at /.well-known/ucp, a live UCP shopping MCP endpoint for agent-driven catalog search, cart and checkout, and Shopify Customer Accounts OpenID Connect for buyer-scoped access. There is no traditional developer portal or first-party REST API program.
 
-Backed by: hillhouse — https://www.lifestyleshealthcare.com
+**Areas:** Company · Healthcare · Sexual Wellness · Consumer Packaged Goods · E-Commerce · Agentic Commerce · MCP · Shopify · Retail
+
+## LifeStyles Healthcare on APIs.io
+
+Everything profiled for LifeStyles Healthcare is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/lifestyles-healthcare/](https://apis.io/providers/lifestyles-healthcare/)** — or go straight to one of the APIs or properties below.
+
+### APIs (2)
+
+- [LifeStyles US UCP Shopping (MCP)](https://apis.io/apis/lifestyles-healthcare/lifestyles-us-ucp-shopping-mcp/) — The LifeStyles US store implements the Universal Commerce Protocol for agent-driven commerce. Agents discover the merchant profile at /.well-known/ucp and…
+- [LifeStyles US Storefront JSON](https://apis.io/apis/lifestyles-healthcare/lifestyles-us-storefront-json/) — Unauthenticated read-only JSON endpoints over the LifeStyles US Shopify storefront - product listings, individual products, collections, search and cart…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [lifestyles-us-ucp](https://apis.io/servers/lifestyles-healthcare/lifestyles-us-ucp/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Lifestyles Healthcare Authentication](https://apis.io/security/lifestyles-healthcare/lifestyles-healthcare-authentication/)
+- [Lifestyles Healthcare Domain Security](https://apis.io/security/lifestyles-healthcare/lifestyles-healthcare-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Lifestyles Healthcare Scopes](https://apis.io/scopes/lifestyles-healthcare/lifestyles-healthcare-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://lifestyles.com)
+- [Documentation](https://lifestyles.com/llms.txt)
+- [Support](https://lifestyles.com/pages/contact)
+- [Blog](https://lifestyles.com/blogs/sexual-health-safe-sex)
+- [Terms of service](https://lifestyles.com/policies/terms-of-service)
+- [Privacy policy](https://lifestyles.com/policies/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 23.3** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.7 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 35.7 |
+| Access clarity | 21.1 |
+
+**Agent readiness 18.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | platform (partial credit) |
+
+**Regulatory alignment 32.8** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/lifestyles-healthcare/](https://apis.io/providers/lifestyles-healthcare/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for LifeStyles Healthcare: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/lifestyles-healthcare/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
